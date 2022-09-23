@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            
+            border-radius: 10px;
+            border-collapse: collapse;
+            width: 300px;
+            height: 500px;
+            margin: 100px 300px 300px;
+            background-color: #443850;
+        }
+        button{
+            width: 120px;
+            height: 75px;
+            background-color: #A379C9;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 30px;
+        }
+        #display{
+            width: 500px;
+            height: 75px;
+            background-color: #F6F7EB;
+            color: #BC2C1A;
+            border: none;
+            border-radius: 10px;
+            font-size: 50px;
+            text-align: right;
+            text-indent: 30px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td colspan="4"><input id="display" type="text" disabled></td>
+        </tr>
+        <tr><td><button id="barcket1" onclick="display('(')">(</button></td>
+            <td><button id="barcket2" onclick="display(')')">)</button></td>
+            <td><button id="clear" onclick="clearScreen()">AC</button></td>
+            <td><button id="backspace" onclick="clearpart()"><=</button></td>
+        </tr>
+        <tr>
+            <td><button id="one" class="numbers" onclick="display('1')" value="1">1</button></td>
+            <td><button id="two" class="numbers" onclick="display('2')" value="2">2</button></td>
+            <td><button id="three" class="numbers" onclick="display('3')" value="3">3</button></td>
+            <td><button id="plus" class="spec" onclick="display('+')" value="+">+</button></td>
+        </tr>
+        <tr>
+            <td><button id="four" class="numbers" onclick="display('4')" value="4">4</button></td>
+            <td><button id="five" class="numbers" onclick="display('5')" value="5">5</button></td>
+            <td><button id="six" class="numbers" onclick="display('6')" value="6">6</button></td>
+            <td><button id="minus" class="spec" onclick="display('-')" value="-">-</button></td>
+        </tr>
+        <tr>
+            <td><button id="seven" class="numbers" onclick="display('7')" value="7">7</button></td>
+            <td><button id="eight" class="numbers" onclick="display('8')" value="8">8</button></td>
+            <td><button id="nine" class="numbers" onclick="display('9')" value="9">9</button></td>
+            <td><button id="multiply" class="spec" onclick="display('*')" value="*">*</button></td>
+        </tr>
+        <tr>
+            <td><button id="point" class="spec" onclick="display('.')" value=".">.</button></td>
+            <td><button id="zero" class="numbers" onclick="display('0')" value="0">0</button></td>
+            <td><button id="equal" class="spec" onclick="cal()" value="=">=</button></td>
+            <td><button id="divide" class="spec" onclick="display('/')" value="/">/</button></td>
+        </tr>
+    </table>
+    <script>
+        function display(v){
+            var display = document.getElementById("display");
+            display.value += v;
+        }
+        function cal(){
+            var e=document.getElementById("display").value;
+            var q=eval(e);
+            var display = document.getElementById("display");
+            display.value = q;
+        }
+        function clearScreen(){
+            var display = document.getElementById("display");
+            display.value = " ";
+        }
+        function clearpart(){
+            var display = document.getElementById("display");
+            display.value=display.value.substring(0,display.value.length-1);
+        }
+    </script>
+</body>
+</html>
